@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
+import { Carousel, Dropdown, initTE, Collapse } from 'tw-elements';
 
 export interface Todo {
   id: number;
@@ -13,8 +14,16 @@ export interface Todo {
 export class AppComponent {
   newTodoText = '';
   todos: Todo[] = [];
+  darkMode = true;
+  @HostBinding('class.dark') get mode() {
+    return this.darkMode;
+  }
 
   constructor() {}
+
+  ngOnInit() {
+    initTE({ Carousel, Dropdown, Collapse });
+  }
 
   addTodo(): void {
     if (this.newTodoText.trim() !== '') {

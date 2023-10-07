@@ -1,25 +1,104 @@
-<div class="bg-gray-100 min-h-screen p-4">
-  <div class="max-w-2xl mx-auto">
-    <div class="container mx-auto mt-4">
-      <h1 class="text-2xl font-bold mb-4">Todo List</h1>
+<div class="min-h-screen min-w-full bg-lightBG dark:bg-darkBG">
+  <div class="bg-header text-white p-5 font-semibold text-lg shadow-lg flex justify-end">
+    <div>
+      <button class="flex gap-4 transition-transform hover:scale-125" (click)="darkMode = !darkMode">
+        <span *ngIf="!darkMode" class="material-icons text-lightBG">dark_mode</span>
+        <span *ngIf="darkMode" class="material-icons text-lightBG">light_mode</span>
+      </button>
+    </div>
+  </div>
 
-      <div class="mb-4">
-        <input [(ngModel)]="newTodoText" (keyup.enter)="addTodo()" placeholder="Add a new todo..."
-          class="w-full py-2 px-3 rounded-md border border-gray-300" />
+  <ul>
+    <li class="px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+      <div class="flex justify-between p-4">
+        <img src="https://randomuser.me/api/portraits/men/67.jpg" class="w-10 rounded-full">
+        <p>Message</p>
+        <div></div>
       </div>
-
-      <ul>
-        <li *ngFor="let todo of todos" class="flex items-center justify-between bg-white rounded-lg p-2 shadow mb-2">
-          <div [ngClass]="{'line-through': todo.completed}" (click)="toggleTodo(todo)">
-            {{ todo.text }}
-          </div>
-          <button (click)="deleteTodo(todo)" class="text-red-500 hover:text-red-700">
-            Delete
-          </button>
+    </li>
+    <li class="px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+      Two</li>
+    <li>
+      <a data-te-collapse-init href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree"
+        class="flex items-center px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50  active:font-bold">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
+          class="h-4 w-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+        Three
+      </a>
+      <ul class="!visible hidden" id="collapseThree" data-te-collapse-item>
+        <li
+          class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+          Second-one</li>
+        <li
+          class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+          Second-two</li>
+        <li class="ml-4">
+          <a data-te-collapse-init href="#collapseSecondThree" role="button" aria-expanded="false"
+            aria-controls="collapseSecondThree"
+            class="flex items-center px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50  active:font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+              stroke="currentColor" class="h-4 w-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+            Second-three
+          </a>
+          <ul class="!visible hidden" id="collapseSecondThree" data-te-collapse-item>
+            <li class="ml-4 px-2">
+              <a data-te-collapse-init href="#collapseThirdOne" role="button" aria-expanded="false"
+                aria-controls="collapseThirdOne"
+                class="flex items-center px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50  active:font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                  stroke="currentColor" class="h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>Third-one
+              </a>
+              <ul class="!visible hidden" id="collapseThirdOne" data-te-collapse-item>
+                <li
+                  class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+                  Fourth-one
+                </li>
+                <li
+                  class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+                  Fourth-two
+                </li>
+                <li
+                  class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+                  Fourth-three
+                </li>
+              </ul>
+            </li>
+            <li
+              class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+              Third-two</li>
+            <li class="ml-4">
+              <a data-te-collapse-init href="#collapseThirdThree" role="button" aria-expanded="false"
+                aria-controls="collapseThirdThree"
+                class="flex items-center px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50  active:font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                  stroke="currentColor" class="h-4 w-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>Third-three
+              </a>
+              <ul class="!visible hidden" id="collapseThirdThree" data-te-collapse-item>
+                <li
+                  class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+                  Fourth-one
+                </li>
+                <li
+                  class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+                  Fourth-two
+                </li>
+                <li
+                  class="ml-4 px-2 hover:bg-lightHover hover:font-bold text-darkBG dark:hover:bg-darkHover dark:text-success-50">
+                  Fourth-three
+                </li>
+              </ul>
+            </li>
+          </ul>
         </li>
       </ul>
-    </div>
-
-    <router-outlet></router-outlet>
-  </div>
+    </li>
+  </ul>
 </div>
